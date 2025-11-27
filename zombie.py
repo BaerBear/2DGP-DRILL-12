@@ -195,6 +195,5 @@ class Zombie:
         root = chase_or_runaway = Selector('도망 또는 추적', runaway_if_less_balls, chase_or_wander)
 
         self.bt = BehaviorTree(root)
-        pass
 
 
