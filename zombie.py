@@ -187,7 +187,12 @@ class Zombie:
         a5 = Action('순찰 위치 가져오기', self.get_patrol_location)
         patrol = Sequence('순찰', a5, a2)
 
-        root = chase_or_patrol = Selector('추적 또는 순찰', chase_boy_if_nearby, patrol)
+        chase_or_patrol = Selector('추적 또는 순찰', chase_boy_if_nearby, patrol)
+
+        c2 = Condition('공 개수 비교', self.check_ball_count_less)
+        a6 = Action('소년으로부터 도망치기', self.run_away_from_boy)
+        runaway_if_less_balls = Sequence('가진 공이 더 적으면 도망', c1, c2, a6)
+        root = chase_or_runaway = Selector('도망 또는 추적', runaway_if_less_balls, chase_or_wander)
 
         self.bt = BehaviorTree(root)
         pass
