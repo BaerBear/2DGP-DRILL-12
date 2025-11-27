@@ -152,6 +152,11 @@ class Zombie:
         self.loc_no = (self.loc_no + 1) % len(self.patrol_locations)
         return BehaviorTree.SUCCESS
 
+    def check_ball_count_less(self):
+        pass
+
+    def run_away_from_boy(self):
+        pass
 
     def build_behavior_tree(self):
         # 여기를 채우시오.
